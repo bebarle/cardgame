@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-const styles = (cardHeight) => {
+const styles = (cardHeight, cols) => {
   const cardStyle = {
     width: '100%',
     height: '100%',
@@ -14,9 +14,9 @@ const styles = (cardHeight) => {
 
   return StyleSheet.create({
     cardFlip: {
-      width: '30%',
+      flex: (1 / cols),
       height: cardHeight,
-      marginLeft: 10,
+      marginHorizontal: 4
     },
     card: {
       ...cardStyle

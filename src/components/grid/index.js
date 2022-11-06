@@ -33,6 +33,7 @@ const Grid = props => {
             isVisible={finishedItems.includes(index) || visibleItems.includes(index)}
             enabled={isEnabled()}
             value={item.value}
+            cols={NUM_OF_COL}
             onClick={() => {
               if (!finishedItems.includes(index)) {
                 switch (visibleItems.length) {
