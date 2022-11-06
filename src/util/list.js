@@ -2,7 +2,7 @@ const randomInt = (min = 1, max = 100) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
 };
 
-const generateRandomNumbers = (cardPairs) => {
+export const generateRandomNumbers = (cardPairs) => {
     const randomNumbers = [];
     while (randomNumbers.length < cardPairs) {
         const number = randomInt();

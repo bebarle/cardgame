@@ -1,14 +1,20 @@
-import React from "react";
-import { View, TouchableOpacity, Image, StyleSheet, Text } from "react-native";
-import CardFlip
-  from "./card-flip";
+import React from 'react';
+import { TouchableOpacity, useWindowDimensions, Text } from 'react-native';
+import styles from './index.style';
+import Flip, { CARD_SIDES } from './flip';
+
 const Card = props => {
-  const { isVisible, onClick, id, value, enabled } = props;
+  const { isVisible, onClick, value, enabled } = props;
   const cardRef = React.useRef();
-  const sideRef = React.useRef(0);
+  const sideRef = React.useRef(CARD_SIDES.BACK);
+
+  const { width } = useWindowDimensions();
+
+  const cardWidth = Math.min(width / 3);
+  const cardHeight = cardWidth * 1.3;
 
   React.useEffect(() => {
-    if (!isVisible && cardRef.current && sideRef.current === 1) {
+    if (!isVisible && cardRef.current && sideRef.current === CARD_SIDES.FRONT) {
       cardRef.current.flip();
     }
 
@@ -21,19 +27,19 @@ const Card = props => {
   }
 
   return (
-    <CardFlip
+    <Flip
       ref={(card) => cardRef.current = card}
-      style={{ width: 100, height: 100 }}
+      style={styles(cardHeight).cardFlip}
       onFlipEnd={(side) => {
         sideRef.current = side;
-        if (side === 1) {
+        if (side === CARD_SIDES.FRONT) {
           onClick();
         }
       }}
     >
       <TouchableOpacity
         activeOpacity={1}
-        style={[styles.card, { backgroundColor: 'rgba(249, 180, 45, 0.25)' }]}
+        style={styles(cardHeight).cardBack}
         onPress={() => {
           onCardClick();
         }}>
@@ -42,26 +48,13 @@ const Card = props => {
       <TouchableOpacity
         activeOpacity={1}
         onPress={() => {
-          onCardClick();
         }}
-        style={styles.card}
+        style={styles(cardHeight).card}
       >
         <Text>{value}</Text>
       </TouchableOpacity>
-    </CardFlip >
+    </Flip>
   );
 };
-
-const styles = StyleSheet.create({
-  card: {
-    width: 100,
-    height: 100,
-    justifyContent: "center",
-    alignItems: "center",
-    padding: 10,
-    borderWidth: 1.5,
-    borderColor: "#fff",
-  }
-});
 
 export default Card;
