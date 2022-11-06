@@ -2,7 +2,7 @@
 A number-based memory game made with React Native
 
 ## Prerequisites
-Since the project is using ReactNative 0.70.4, please refer to React Nativ's environmental setup guide here:
+Since the project is using ReactNative 0.70.4, please refer to React Native's environmental setup guide here:
 https://reactnative.dev/docs/next/environment-setup
 
 ## Getting Started
