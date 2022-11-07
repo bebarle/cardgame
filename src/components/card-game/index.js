@@ -1,16 +1,11 @@
 import React from 'react';
-import {
-  Alert,
-  Button,
-  Text,
-  View,
-} from 'react-native';
+import { Alert, Button, Text, View } from 'react-native';
 import Grid from 'components/grid';
 import { generateList, getItem } from '../../util/list';
 import styles from './index.style';
 import { baseStyle } from '../../base.style';
 
-const CardGame = (props) => {
+const CardGame = props => {
   const { pairs } = props;
 
   const [newGame, setNewGame] = React.useState(false);
@@ -36,10 +31,7 @@ const CardGame = (props) => {
     if (!firstItem || !secondItem) {
       notEqual();
     } else {
-      if (
-        firstIndex !== secondIndex &&
-        firstItem.value === secondItem.value
-      ) {
+      if (firstIndex !== secondIndex && firstItem.value === secondItem.value) {
         setFinishedItems([...finishedItems, firstItem.id, secondItem.id]);
         setVisibleItems([]);
       } else {
@@ -54,7 +46,7 @@ const CardGame = (props) => {
     setFinishedItems([]);
     setWinner(false);
     createNewList();
-    setStep(0)
+    setStep(0);
   };
 
   React.useEffect(() => {
@@ -63,21 +55,23 @@ const CardGame = (props) => {
         setWinner(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [step]);
 
   React.useEffect(() => {
     if (winner) {
-      Alert.alert(
-        'Congratulations',
-        `You won this game by ${step} steps`,
-        [{
+      Alert.alert('Congratulations', `You won this game by ${step} steps`, [
+        {
           text: 'Try another round',
-          onPress: () => { restart() }
-        }]
-      )
+          onPress: () => {
+            restart();
+          },
+        },
+      ]);
     }
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [winner]);
+
   return (
     <View style={baseStyle.flexOne}>
       <View>
@@ -87,7 +81,7 @@ const CardGame = (props) => {
             onPress={() => {
               restart();
             }}
-            title='RESTART'
+            title="RESTART"
           />
           <Text style={styles.steps}>STEPS: {step}</Text>
         </View>
@@ -101,8 +95,8 @@ const CardGame = (props) => {
           checkItems={checkItems}
           addStep={() => {
             setStep(prev => {
-              return prev + 1
-            })
+              return prev + 1;
+            });
           }}
         />
       </View>

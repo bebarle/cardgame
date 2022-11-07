@@ -18,26 +18,24 @@ const Card = props => {
     if (!isVisible && cardRef.current && sideRef.current === CARD_SIDES.FRONT) {
       cardRef.current.flip();
     }
-
-  }, [isVisible])
+  }, [isVisible]);
 
   const onCardClick = () => {
     if (enabled && !isVisible) {
       cardRef.current.flip();
     }
-  }
+  };
 
   return (
     <Flip
-      ref={(card) => cardRef.current = card}
+      ref={card => (cardRef.current = card)}
       style={cardStyles.cardFlip}
-      onFlipEnd={(side) => {
+      onFlipEnd={side => {
         sideRef.current = side;
         if (side === CARD_SIDES.FRONT) {
           onClick();
         }
-      }}
-    >
+      }}>
       <TouchableOpacity
         activeOpacity={1}
         style={cardStyles.cardBack}
@@ -48,10 +46,7 @@ const Card = props => {
       </TouchableOpacity>
       <TouchableOpacity
         activeOpacity={1}
-        onPress={() => {
-        }}
-        style={cardStyles.card}
-      >
+        style={cardStyles.card}>
         <Text>{value}</Text>
       </TouchableOpacity>
     </Flip>

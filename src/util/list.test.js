@@ -8,15 +8,14 @@ describe('Validating generating random numbers', () => {
     random.forEach(number => {
       expect(number).toBeGreaterThanOrEqual(1);
       expect(number).toBeLessThanOrEqual(100);
-      check.add(number)
-    })
+      check.add(number);
+    });
     expect(check.size).toBe(pairs);
-  })
+  });
 
-  it('Validate that the generated list will always be twice the expected length',
-    () => {
-      const pairs = 5;
-      const generatedPairs = generateList(pairs);
-      expect(generatedPairs.length).toBe(pairs * 2);
-    })
+  it('Validate that the generated list will always be twice the expected length', () => {
+    const pairs = 5;
+    const generatedPairs = generateList(pairs);
+    expect(generatedPairs.length).toBe(pairs * 2);
+  });
 });

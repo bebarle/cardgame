@@ -6,13 +6,13 @@ export default StyleSheet.create({
     flexWrap: 'wrap',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginHorizontal: 5
+    marginHorizontal: 5,
   },
   restart: {
     flex: 1,
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
   },
   steps: {
-    justifyContent: 'center'
-  }
+    justifyContent: 'center',
+  },
 });

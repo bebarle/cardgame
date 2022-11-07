@@ -2,6 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   separator: {
-    margin: 4
-  }
+    margin: 4,
+  },
 });

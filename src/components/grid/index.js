@@ -12,12 +12,12 @@ const Grid = props => {
     finishedItems,
     checkItems,
     list,
-    addStep
+    addStep,
   } = props;
 
   const isEnabled = () => {
     return visibleItems.length < 2;
-  }
+  };
 
   return (
     <FlatList
@@ -26,11 +26,13 @@ const Grid = props => {
       ItemSeparatorComponent={<View style={styles.separator} />}
       renderItem={cardItem => {
         const { item } = cardItem;
-        const index = item.id
+        const index = item.id;
         return (
           <Card
             key={item.id}
-            isVisible={finishedItems.includes(index) || visibleItems.includes(index)}
+            isVisible={
+              finishedItems.includes(index) || visibleItems.includes(index)
+            }
             enabled={isEnabled()}
             value={item.value}
             cols={NUM_OF_COL}
@@ -39,13 +41,13 @@ const Grid = props => {
                 switch (visibleItems.length) {
                   case 0:
                     setVisibleItems([index]);
-                    addStep()
+                    addStep();
                     break;
                   case 1:
                     if (visibleItems[0] !== index) {
                       setVisibleItems(visibleItems.concat(index));
                       checkItems(visibleItems[0], index);
-                      addStep()
+                      addStep();
                     }
                     break;
                   default:
@@ -63,7 +65,7 @@ Grid.defaultProps = {
   list: [],
   visibleItems: [],
   finishedItems: [],
-  checkItems: () => { }
+  checkItems: () => {},
 };
 
 export default Grid;

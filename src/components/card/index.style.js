@@ -9,21 +9,21 @@ const styles = (cardHeight, cols) => {
     padding: 10,
     borderWidth: 1.5,
     borderRadius: 8,
-    borderColor: 'rgba(249, 180, 45, 0.25)'
+    borderColor: 'rgba(249, 180, 45, 0.25)',
   };
 
   return StyleSheet.create({
     cardFlip: {
-      flex: (1 / cols),
+      flex: 1 / cols,
       height: cardHeight,
-      marginHorizontal: 4
+      marginHorizontal: 4,
     },
     card: {
-      ...cardStyle
+      ...cardStyle,
     },
     cardBack: {
       ...cardStyle,
-      backgroundColor: 'rgba(249, 180, 45, 0.25)'
+      backgroundColor: 'rgba(249, 180, 45, 0.25)',
     },
   });
 };
