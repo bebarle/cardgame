@@ -3,8 +3,17 @@ const randomInt = (min = 1, max = 100) => {
 };
 
 export const generateRandomNumbers = cardPairs => {
+  let pairs = cardPairs;
+  if (pairs < 1) {
+    pairs = 1;
+  } else if (pairs > 100) {
+    pairs = 100;
+  } else if (typeof pairs !== 'number') {
+    pairs = 1;
+  }
+
   const randomNumbers = [];
-  while (randomNumbers.length < cardPairs) {
+  while (randomNumbers.length < pairs) {
     const number = randomInt();
     if (!randomNumbers.includes(number)) {
       randomNumbers.push(number);

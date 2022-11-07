@@ -18,4 +18,18 @@ describe('Validating generating random numbers', () => {
     const generatedPairs = generateList(pairs);
     expect(generatedPairs.length).toBe(pairs * 2);
   });
+
+  it('Validate that the generated numbers will never be more than 100', () => {
+    const random = generateRandomNumbers(200);
+    expect(random.length).toBe(100);
+  });
+
+  it('Validate that the generated numbers will never be less than 1', () => {
+    let random = generateRandomNumbers(0);
+    expect(random.length).toBe(1);
+    random = generateRandomNumbers(-1);
+    expect(random.length).toBe(1);
+    random = generateRandomNumbers('X');
+    expect(random.length).toBe(1);
+  });
 });
