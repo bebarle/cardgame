@@ -39,6 +39,7 @@ const Card = props => {
       <TouchableOpacity
         activeOpacity={1}
         style={cardStyles.cardBack}
+        testID={`card-id-${props.id}`}
         onPress={() => {
           onCardClick();
         }}>

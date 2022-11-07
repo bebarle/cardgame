@@ -29,6 +29,7 @@ const Grid = props => {
         const index = item.id;
         return (
           <Card
+            id={item.id}
             key={item.id}
             isVisible={
               finishedItems.includes(index) || visibleItems.includes(index)
@@ -65,7 +66,7 @@ Grid.defaultProps = {
   list: [],
   visibleItems: [],
   finishedItems: [],
-  checkItems: () => {},
+  checkItems: () => { },
 };
 
 export default Grid;
