@@ -44,9 +44,7 @@ const Card = props => {
         }}>
         <Text>?</Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={1}
-        style={cardStyles.card}>
+      <TouchableOpacity activeOpacity={1} style={cardStyles.card}>
         <Text>{value}</Text>
       </TouchableOpacity>
     </Flip>
