@@ -18,3 +18,13 @@ npm install
 ```
 
 3. Enjoy!
+```
+iOS: npm run ios
+Android: npm run android
+```
+
+## Test
+To run the test:
+```
+npm run test
+```
